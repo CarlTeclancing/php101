@@ -1,8 +1,7 @@
 <?php
-
-
+require(__DIR__ . '/../db/connect.php');
 $name = $email = $password ="";
-$nameErr = $emailErr = $passwordErrr = "";
+$nameErr = $emailErr = $passwordErr = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
      if(empty($_POST['name'])){
@@ -21,7 +20,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $email = test_input($_POST['email']);
      }
 
-    header (Location: '../register.php');
+     $hash = password_hash($passsword, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO user (name, email, password) VALUES ('$name', '$email', '$hash')";
+        if($conn->query($sql) === TRUE){
+            header("Location: ../login.php");
+            exit();
+        }else{
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+         $conn->close();
 }
 
 

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <h3 class="text-center mb-4">Login</h3>
-            <form method="POST" action="login.php">
+            <form method="POST" action="./auth/auth.login.php">
               <div class="mb-3">
                 <label>Email</label>
                 <input type="email" name="email" class="form-control" required>

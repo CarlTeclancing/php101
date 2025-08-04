@@ -1,5 +1,5 @@
 <?php
-require ('./auth/auth.register.php')
+$nameErr = $emailErr = $passwordErr = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,7 @@ require ('./auth/auth.register.php')
   <title>Register</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    span{
-        color:red;
-    }
+                    
   </style>
 </head>
 <body class="bg-light">
@@ -20,6 +18,7 @@ require ('./auth/auth.register.php')
         <div class="card shadow-sm">
           <div class="card-body">
             <h3 class="text-center mb-4">Register</h3>
+
             <form method="POST" action="./auth/auth.register.php">
               <div class="mb-3">
                 <label>Name</label>
@@ -33,12 +32,13 @@ require ('./auth/auth.register.php')
               </div>
               <div class="mb-3">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" >
-                <span class="color:red;"><?= $passwordErrr ?></span>
+                <input type="password" name="passsword" class="form-control" >
+                <span class="color:red;"><?= $passwordErr ?></span>
               </div>
               <button type="submit" class="btn btn-success w-100">Register</button>
               <p class="mt-3 text-center">Already have an account? <a href="login.php">Login</a></p>
             </form>
+
           </div>
         </div>
       </div>
